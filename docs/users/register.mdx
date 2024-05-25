@@ -1,0 +1,85 @@
+---
+sidebar_position: 1
+---
+
+# Register User
+
+Endpoint ini digunakan untuk registrasi user baru.
+
+### Path
+
+import MethodBox from "../../src/components/MethodBox/MethodBox";
+
+<MethodBox method="POST" endpoint="/users" methodColor="#48CB90" />
+
+
+### Request Parameters
+
+| Parameter | Type | Required | Description                            |
+|-----------| --- |----------|----------------------------------------|
+| name      | string | required | Nama user                              |
+| email     | string | required | Email aktif user                       |
+| password  | string | required | Password user                          |
+| avatar | string | optional | Foto profile user                      |
+| role | string | required | Role user (user/admin), default "user" |
+
+### Example Request
+
+```json
+{
+  "name": "Bella Rizky Kharisma",
+  "email": "bella@test.com",
+  "password": "123",
+  "avatar": "bella.jpg",
+  "role": "admin"
+}
+```
+
+### Response Parameters
+
+| Name | Type | Description                     |
+|------|------|---------------------------------|
+| id | int  | Id user yang berhasil registrasi |
+| name | string | Nama user                       |
+| email | string | Email user                      |
+| avatar | string | Foto profile user               |
+| role | string | Role user (admin/user)          |
+
+### Response Examples
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+    <TabItem value="success" label="Success Response" default>
+        ```json
+        {
+            "code": 201,
+            "status": "OK",
+            "message": "User telah berhasil registrasi",
+            "data": {
+                "id": 28,
+                "name": "Bella Rizky Kharisma",
+                "email": "bella@test.com",
+                "avatar": "bella.jpg",
+                "role": "admin"
+            }
+        }
+        ```
+    </TabItem>
+    <TabItem value="error" label="Error Response">
+        ```json
+        {
+            "code": 400,
+            "status": "Bad Request",
+            "error": {
+                "name": "The 'name' field is required!"
+            }
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+:::info
+Error response mungkin bisa ada lagi, selain dari contoh. *Don't worry*, sudah dihandle tentunya.
+:::

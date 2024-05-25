@@ -1,0 +1,116 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #2e8555;
+  --ifm-color-primary-dark: #29784c;
+  --ifm-color-primary-darker: #277148;
+  --ifm-color-primary-darkest: #205d3b;
+  --ifm-color-primary-light: #33925d;
+  --ifm-color-primary-lighter: #359962;
+  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #25c2a0;
+  --ifm-color-primary-dark: #21af90;
+  --ifm-color-primary-darker: #1fa588;
+  --ifm-color-primary-darkest: #1a8870;
+  --ifm-color-primary-light: #29d5b0;
+  --ifm-color-primary-lighter: #32d8b4;
+  --ifm-color-primary-lightest: #4fddbf;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+/* custom fonts (it's works) */
+/*@font-face {*/
+/*  font-family: 'Aptos';*/
+/*  src: url('../../static/fonts/aptos.ttf') format('ttf');*/
+/*  font-weight: normal;*/
+/*  font-style: normal;*/
+/*}*/
+
+/*html, body {*/
+/*  font-family: 'aptos', sans-serif;*/
+/*}*/
+
+/* custom cards */
+.cards-container {
+  display: grid;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.card-me {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--ifm-background-surface);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  box-shadow: var(--ifm-global-shadow-lw);
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.card-me:hover {
+  transform: translateY(-5px);
+}
+
+.card-me img {
+  width: 50px;
+  height: 50px;
+}
+
+.card-me-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0.5rem 0;
+}
+
+.card-me-description {
+  font-size: 1rem;
+  color: var(--ifm-font-color-base);
+}
+
+@media (prefers-color-scheme: dark) {
+  .card-me {
+    background-color: var(--ifm-background-surface);
+    border: 1px solid var(--ifm-color-emphasis-800);
+    box-shadow: var(--ifm-global-shadow-dw);
+  }
+}
+
+/* Responsive styling */
+@media (min-width: 1200px) {
+  .cards-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .cards-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .cards-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .cards-container {
+    grid-template-columns: 1fr;
+  }
+}
+/*end custom cards*/
